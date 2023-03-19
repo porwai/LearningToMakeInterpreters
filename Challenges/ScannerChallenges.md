@@ -13,8 +13,8 @@ It may be useful for readability if you were wanting to translate your code into
 4. Add support to Lox’s scanner for C-style /* ... */ block comments. Make sure to handle newlines in them. Consider allowing them to nest. Is adding support for nesting more work than you expected? Why?
 
 I created a new fuction 
-
-private void blockComments() {
+    
+    private void blockComments() {
         int depth = 0;
         while (true) {
             // returns error if the comment is unclosed
@@ -35,8 +35,9 @@ private void blockComments() {
 
         }
     }
-    
-  and defined the case of / differently
+
+ 
+and defined the case of / differently
   
     case '/':
                 if (match('/')) {
