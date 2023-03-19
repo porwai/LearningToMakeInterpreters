@@ -7,6 +7,7 @@ This is because each element in python can represent multiple things such as int
 
 
 3. Our scanner here, like most, discards comments and whitespace since those aren’t needed by the parser. Why might you want to write a scanner that does not discard those? What would it be useful for?
+
 It may be useful for readability if you were wanting to translate your code into machine language
 
 
