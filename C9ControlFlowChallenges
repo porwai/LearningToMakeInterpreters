@@ -1,0 +1,48 @@
+# Chapter 9 Control Flow
+
+1. 
+Class True {
+  ifTHen(thenBranch) {
+    return thenBranch();
+  }
+  
+  ifThenElse(thenBranch, elseBranch) {
+    return thenBranch();
+  } 
+}
+
+Class False {
+  ifTHen(thenBranch) {
+    return nil;
+  }
+  
+  ifThenElse(thenBranch, elseBranch) {
+    return elseBranch();
+  } 
+}
+
+var t = True(); 
+var f = False();
+
+2. 
+fun forStep(i) {
+  Do body;
+  if (i < times, ie. condition) forStep(i += ..., ie. iteration);
+}
+
+Issue is that there is overflow of a stack due to many recursive calls. 
+However, info is not needed to be preserved in previous recursive calls if it is last 
+fuction called in the body of the recursion. Thus stack space can be discarded. 
+-- Tail call optimization 
+
+3. 
+I did this by adding a new AST break into the stmt. 
+Furthermore, I made it so that the parser understands whether we are in a loop by creating a new private instance variable called loop depth. 
+Each time for or while loop is called depth is increased, and when break is called when depth is 0, error is thrown. 
+
+Each time a break statement is caught, the interpreter throws a runtime exception. 
+I use a try finally statement in the interpreter to see if the while function catches any break runtime exceptions, 
+if it is caught, you break out of the function and nothing is ran. 
+
+As for loop utilizes the while interpreter, this is only needed to be done to the while function. 
+
